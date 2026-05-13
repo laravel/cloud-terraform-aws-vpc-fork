@@ -12,6 +12,9 @@ on:
       - '**/*.tf'
       - '.github/workflows/release.yml'
 
+permissions:
+  contents: read
+
 jobs:
   release:
     name: Release
@@ -20,13 +23,13 @@ jobs:
     if: github.repository_owner == 'terraform-aws-modules'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           persist-credentials: false
           fetch-depth: 0
 
       - name: Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@16ca923e6ccbb50770c415a0ccd43709a8c5f7a4 # v4
         with:
           semantic_version: 23.0.2
           extra_plugins: |
